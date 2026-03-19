@@ -3,52 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Walter Wodya | Azure Resume</title>
+    <title>Walter Wodya | Azure Cloud Professional</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Walter Wodya</h1>
-            <p class="subtitle">Azure Cloud Professional</p>
-        </header>
 
-        <section class="main-content">
-            <h2>Cloud Projects</h2>
-            <div class="project-card">
-                <h3>Azure Cloud Resume Challenge</h3>
-                <p>A serverless application using Azure Functions, Cosmos DB, and Blob Storage.</p>
+    <header>
+        <div class="header-content">
+            <h1>Walter Wodya</h1>
+            <p class="tagline">Azure Cloud & Applied IT Professional</p>
+            <p class="location">Kampala, Uganda | Available for 100% Remote Global Roles</p>
+            <div class="social-links">
+                <a href="mailto:Wodyawalter02@gmail.com">Email</a> | 
+                <a href="https://www.linkedin.com/in/walter-wodya/" target="_blank">LinkedIn</a> | 
+                <a href="https://github.com/WodyaWalter02-byte" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="summary">
+            <h2>Professional Summary</h2>
+            <p>
+                Microsoft Certified Azure Fundamentals (AZ-900) professional and Applied IT student at ISBAT University. 
+                Specialized in cloud infrastructure deployment, identity management (Entra ID), and secure networking. 
+                Proven ability to build serverless applications and secure cloud environments using industry best practices. 
+                Seeking a Junior Cloud Support or Azure Administrator role to support global enterprise operations.
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <ul>
+                    <li><strong>Cloud Platforms:</strong> Microsoft Azure (Compute, Storage, Networking, Governance)</li>
+                    <li><strong>Security & Identity:</strong> Microsoft Entra ID, RBAC, MFA, Azure Policy</li>
+                    <li><strong>Networking:</strong> VNet, Subnets, NSGs, Azure Bastion, DNS</li>
+                    <li><strong>Automation & Data:</strong> Azure Functions, Cosmos DB, Blob Storage</li>
+                    <li><strong>Operations:</strong> Cost Management, Resource Tagging, Technical Troubleshooting</li>
+                </ul>
             </div>
         </section>
 
-        <footer>
-            <div class="counter-box">
-                <p>Visitor Count: <span id="counter">0</span></p>
+        <section id="projects">
+            <h2>Cloud Projects</h2>
+            
+            <div class="project">
+                <h3>Azure Cloud Resume Challenge</h3>
+                <p>Designed and deployed a serverless, highly available web-based resume using <strong>Azure Blob Storage</strong> and <strong>Azure CDN</strong>. Integrated frontend static site with backend API (<strong>Azure Functions & Cosmos DB</strong>) to track visitor metrics via JavaScript/JSON.</p>
             </div>
-            <p>� 2026 Walter Wodya</p>
-        </footer>
-    </div>
+
+            <div class="project">
+                <h3>Azure Static Website Hosting</h3>
+                <p>Configured high-performance hosting using <strong>Azure Storage Account</strong> (Static Website feature) for optimized global content delivery. Implemented custom domain mapping with <strong>SSL/TLS termination</strong> via Azure CDN for secure, low-latency user access.</p>
+            </div>
+
+            <div class="project">
+                <h3>Virtual Machine Web Server Deployment</h3>
+                <p>Architected and provisioned an <strong>Azure Virtual Machine (Ubuntu/Windows)</strong> to host a production-grade web server environment. Configured <strong>Network Security Groups (NSGs)</strong> to strictly manage inbound HTTP/HTTPS traffic and secure management ports.</p>
+            </div>
+
+            <div class="project">
+                <h3>Secure Multi-Tier Business Infrastructure</h3>
+                <p>Architected secure corporate network using <strong>VNet, Subnets, and NSGs</strong> to isolate workload tiers. Implemented <strong>Azure Bastion</strong> for secure, RDP/SSH-less management access to private instances.</p>
+            </div>
+        </section>
+
+        <div class="two-column">
+            <section id="experience">
+                <h2>Experience</h2>
+                <p><strong>Cloud Lab Lead & Freelance IT Support</strong><br>2024 – Present</p>
+                <ul>
+                    <li>Architect and manage Azure test environments for Governance.</li>
+                    <li>Configure secure remote access solutions (MFA/VPN).</li>
+                </ul>
+            </section>
+
+            <section id="education">
+                <h2>Education & Certs</h2>
+                <ul>
+                    <li><strong>B.Sc. Applied IT</strong> - ISBAT University (2028)</li>
+                    <li><strong>AZ-900</strong> - Microsoft Certified (Feb 2026)</li>
+                    <li><strong>AZ-104</strong> - Azure Administrator (In Progress)</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="counter">
+            <p>Total Visitors: <span id="counter">0</span></p>
+        </div>
+        <p>© 2026 Walter Wodya | Built on Microsoft Azure</p>
+    </footer>
 
     <script>
-        // REPLACE THIS URL with your "Get Function URL" from the Portal
-        const apiUri = "https://walterfunction-azdjbjakbjgpagb6.southafricanorth-01.azurewebsites.net/api/GetResumeCounter?code=6aRalHAtnqk4LmaRqQwTZVAt6sbNvsQbHSQWMJRouaopAzFu9-rPWQ==";
+        const functionApi = "https://walterfunction-azdjbjakbjgpagb6.southafricanorth-01.azurewebsites.net/api/GetResumeCounter?code=6aRalHAtnqk4LmaRqQwTZVAt6sbNvsQbHSQWMJRouaopAzFu9-rPWQ==";
 
-        window.onload = function() {
-            fetch(apiUri)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('HTTP status ' + response.status);
-                }
-                return response.json();
-            })
-            .then(data => {
-                document.getElementById('counter').innerText = data.count;
-            })
-            .catch(err => {
-                console.error("Counter Error:", err);
-                document.getElementById('counter').innerText = "API Error (Check CORS)";
-            });
-        };
+        window.addEventListener('DOMContentLoaded', (event) => {
+            fetch(functionApi)
+                .then(response => {
+                    if (!response.ok) throw new Error('API Error');
+                    return response.json();
+                })
+                .then(data => {
+                    document.getElementById('counter').innerText = data.count;
+                })
+                .catch(error => {
+                    console.log("Error fetching counter:", error);
+                    document.getElementById('counter').innerText = "N/A";
+                });
+        });
     </script>
 </body>
 </html>
