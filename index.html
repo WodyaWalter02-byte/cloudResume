@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walter Wodya | Azure Resume</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Walter Wodya</h1>
+            <p class="subtitle">Azure Cloud Professional</p>
+        </header>
+
+        <section class="main-content">
+            <h2>Cloud Projects</h2>
+            <div class="project-card">
+                <h3>Azure Cloud Resume Challenge</h3>
+                <p>A serverless application using Azure Functions, Cosmos DB, and Blob Storage.</p>
+            </div>
+        </section>
+
+        <footer>
+            <div class="counter-box">
+                <p>Visitor Count: <span id="counter">0</span></p>
+            </div>
+            <p>© 2026 Walter Wodya</p>
+        </footer>
+    </div>
+
+    <script>
+        // REPLACE THIS URL with your "Get Function URL" from the Portal
+        const apiUri = "https://walterfunction-azdjbjakbjgpagb6.southafricanorth-01.azurewebsites.net/api/GetResumeCounter?code=6aRalHAtnqk4LmaRqQwTZVAt6sbNvsQbHSQWMJRouaopAzFu9-rPWQ==";
+
+        window.onload = function() {
+            fetch(apiUri)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('HTTP status ' + response.status);
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('counter').innerText = data.count;
+            })
+            .catch(err => {
+                console.error("Counter Error:", err);
+                document.getElementById('counter').innerText = "API Error (Check CORS)";
+            });
+        };
+    </script>
+</body>
+</html>
