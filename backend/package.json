@@ -1,0 +1,9 @@
+{
+  "name": "walterfunction",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "@azure/functions": "^4.0.0",
+    "@azure/cosmos": "^4.0.0"
+  }
+}
